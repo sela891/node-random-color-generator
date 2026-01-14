@@ -1,7 +1,6 @@
-//import { argv } from 'node:process';
 import chalk from 'chalk';
 
-//console.log(`This is a ${argv[2]} test`);
+const colorText = chalk.hex(generateRandomColor());
 
 function generateRandomColor() {
   let letters = '0123456789ABCDEF';
@@ -11,8 +10,6 @@ function generateRandomColor() {
   }
   return hexcode;
 }
-
-const colorText = chalk.hex(generateRandomColor());
 
 function generateThreeLines() {
   let lines = '';
