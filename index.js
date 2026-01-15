@@ -1,38 +1,27 @@
+import { argv } from 'node:process';
 import chalk from 'chalk';
+import randomcolor from 'randomcolor';
 
-const colorText = chalk.hex(generateRandomColor());
+const hue = argv[2];
+const luminosity = argv[3];
 
-function generateRandomColor() {
-  let letters = '0123456789ABCDEF';
-  let hexcode = '#';
-  for (let i = 0; i < 6; i++) {
-    hexcode += letters[Math.floor(Math.random() * 16)];
-  }
-  return hexcode;
-}
+const myColor = randomcolor({
+  luminosity: luminosity,
+  hue: hue,
+});
 
-function generateThreeLines() {
-  let lines = '';
-  for (let i = 0; i < 3; i++) {
-    lines += '#'.repeat(31) + '\n';
-  }
-  return lines;
-}
+const colorBox = chalk.hex(myColor);
 
-function generateImage(hexcode) {
-  let image = '';
-  image += generateThreeLines();
-  image += '#'.repeat(5) + ' '.repeat(21) + '#'.repeat(5) + '\n';
-  image +=
+function generateBox(myColor) {
+  let fullLines = Array(3).fill('#'.repeat(31)).join('\n') + '\n';
+  let halfLines = '#'.repeat(5) + ' '.repeat(21) + '#'.repeat(5) + '\n';
+  let middleLine =
     '#'.repeat(5) +
     ' '.repeat(7) +
-    hexcode +
+    myColor +
     ' '.repeat(7) +
     '#'.repeat(5) +
     '\n';
-  image += '#'.repeat(5) + ' '.repeat(21) + '#'.repeat(5) + '\n';
-  image += generateThreeLines();
-  return image;
+  return [fullLines, halfLines, middleLine, halfLines, fullLines].join('');
 }
-
-console.log(colorText(generateImage(generateRandomColor())));
+console.log(colorBox(generateBox(myColor)));

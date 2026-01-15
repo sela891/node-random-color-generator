@@ -13,8 +13,8 @@ is also accepted and random colors that match those choices are being generated.
 
 ## TODOs
 
-- [] figure out how to receive command line arguments
-- [] figure out how to print a block of 31x9 # characters with user input
-- [] figure out how to get blocks of 31x9 # characters (library?)
-- [] figure out how to randomize the color
-- [] figure out how to add criteria for hue and luminosity
+- [x] figure out how to receive command line arguments
+- [x] figure out how to randomize the color
+- [x] figure out how to add criteria for hue and luminosity
+- [x] figure out how to print a block of 31x9 # characters with user input
+- [x] figure out how to generate blocks of 31x9 # characters
