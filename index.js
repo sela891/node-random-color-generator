@@ -12,10 +12,10 @@ const myColor = randomcolor({
 
 const colorBox = chalk.hex(myColor);
 
-function generateBox(myColor) {
-  let fullLines = Array(3).fill('#'.repeat(31)).join('\n') + '\n';
-  let halfLines = '#'.repeat(5) + ' '.repeat(21) + '#'.repeat(5) + '\n';
-  let middleLine =
+function generateBox() {
+  const fullLines = Array(3).fill('#'.repeat(31)).join('\n') + '\n';
+  const halfLines = '#'.repeat(5) + ' '.repeat(21) + '#'.repeat(5) + '\n';
+  const middleLine =
     '#'.repeat(5) +
     ' '.repeat(7) +
     myColor +
